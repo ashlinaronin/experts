@@ -5,4 +5,16 @@ experts.config(function($stateProvider, $urlRouterProvider) {
 		url: "",
 		templateUrl: "partials/home.html"
 	});
+	
+	$stateProvider.state('questions', {
+		url: "/questions",
+		templateUrl: "partials/questions.html",
+		controller: "QuestionsCtrl"
+	});
+	
+	$stateProvider.state('questions.students', {
+		url: "/:questionId",
+		templateUrl: "partials/questions.answers.html",
+		controller: 'AnswersCtrl'
+	});
 });
