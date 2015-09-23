@@ -1,0 +1,32 @@
+<div ng-show="question.answers.length">
+	<div class="panel panel-default" id="question-list">
+		<div class="panel-heading">
+			<h2>{{ question.synopsis }}</h2>
+			<h4>{{ question.description }}</h4>
+		</div>
+		<div class="panel-body">
+			<div class="list-group">
+				<div class="list-group-item" ng-repeat="item in question.answers | orderBy: '-rating'">
+					<h4 class="list-group-item-heading">{{item.rating}} {{ item.userName }}</h4>
+					
+					<p class="list-group-item-text">{{ item.answerText }}</p>
+					<p class="list-group-item-text">{{ item.approved }}</p>
+					<div ng-show="item.comments.length" ng-repeat="index in item.comments">
+						<p class="list-group-item-text">{{ index.description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div>
+	<h2>Add an Answer:</h2>
+	<form ng-submit="addAnswer()" class="form-inline" role="form">
+		<div class="form-group">
+			<input type="text" ng-model="userName" placeholder="Enter Username">
+			<input type="text" ng-model="answerText" placeholder="Enter Answer">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

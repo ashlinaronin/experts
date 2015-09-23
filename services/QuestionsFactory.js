@@ -12,7 +12,9 @@ experts.factory('QuestionsFactory', function QuestionsFactory() {
 				id: factory.questions.length + 1,
 			}
 		);
-		factory.question.synopsis
+		
+		// Reset text box
+		factory.userName = null;
 	};
 	
 	return factory;

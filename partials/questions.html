@@ -6,8 +6,8 @@
 		<div class="panel-body">
 			<div class="list-group">
 				<div class="list-group-item" ng-repeat="item in questions">
-					<h4 class="list-group-item-heading">{{ item.userName }}</h4>
-					<p class="list-group-item-text"><a ui-sref="questions.answers({ questionId: item.id })">{{ item.synopsis }}</a></p>
+					<h4 class="list-group-item-heading"><a ui-sref="questions.answers({ questionId: item.id })">{{ item.synopsis }}</a></h4>
+					<p class="list-group-item-text">{{ item.userName }}</p>
 					<p class="list-group-item-text">{{ item.answered }}</p>
 				</div>
 			</div>
