@@ -7,7 +7,7 @@ experts.factory('QuestionsFactory', function QuestionsFactory() {
 				userName: factory.userName,
 				synopsis: factory.synopsis,
 				description: factory.description,
-				answered: factory.answered,
+				answered: false,
 				answers: [],
 				id: factory.questions.length + 1,
 			}
