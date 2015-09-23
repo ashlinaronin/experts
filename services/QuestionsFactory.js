@@ -15,6 +15,8 @@ experts.factory('QuestionsFactory', function QuestionsFactory() {
 		
 		// Reset text box
 		factory.userName = null;
+		factory.synopsis = null;
+		factory.description = null;
 	};
 	
 	return factory;

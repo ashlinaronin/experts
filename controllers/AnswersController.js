@@ -3,6 +3,7 @@ experts.controller('AnswersCtrl',
 	$scope.question = UtilitiesFactory.findById(QuestionsFactory.questions, $stateParams.questionId);
 	
 	$scope.addAnswer = function() {
+		$scope.question.answered = true;
 		$scope.question.answers.push(
 			{
 				userName: $scope.userName, 
@@ -19,7 +20,16 @@ experts.controller('AnswersCtrl',
 	}
 	
 	$scope.rate = function(answer, value) {
-		var index = $scope.question.indexOf(answer);
+		var index = $scope.question.answers.indexOf(answer);
 		$scope.question.answers[index].rating += value;
+	}
+	
+	$scope.addComment = function(answer, comment) {
+		console.log(comment);
+		var newComment = {description: comment};
+		var index = $scope.question.answers.indexOf(answer);
+		$scope.question.answers[index].comments.push(newComment);
+		
+		
 	}
 });

@@ -1,18 +1,31 @@
-<div ng-show="question.answers.length">
+<div>
 	<div class="panel panel-default" id="question-list">
 		<div class="panel-heading">
 			<h2>{{ question.synopsis }}</h2>
 			<h4>{{ question.description }}</h4>
 		</div>
-		<div class="panel-body">
+		<div class="panel-body" ng-show="question.answers.length">
 			<div class="list-group">
 				<div class="list-group-item" ng-repeat="item in question.answers | orderBy: '-rating'">
-					<h4 class="list-group-item-heading">{{item.rating}} {{ item.userName }}</h4>
-					
-					<p class="list-group-item-text">{{ item.answerText }}</p>
-					<p class="list-group-item-text">{{ item.approved }}</p>
-					<div ng-show="item.comments.length" ng-repeat="index in item.comments">
-						<p class="list-group-item-text">{{ index.description }}</p>
+					<span class="glyphicon glyphicon-chevron-up" aria-hidden="true" ng-click="rate(item, 1)"></span>{{item.rating}}
+					<span class="glyphicon glyphicon-chevron-down" aria-hidden="true" ng-click="rate(item, -1)"></span>
+					<h4 class="list-group-item-heading" ng-click="showInfo = true">{{ item.answerText }}</h4>
+					<div ng-show="showInfo">
+						<p class="list-group-item-text">{{ item.userName }}</p>
+						<p class="list-group-item-text">{{ item.approved }}</p>
+						<div ng-show="item.comments.length" ng-repeat="index in item.comments">
+							<p class="list-group-item-text">{{ index.description }}</p>
+						</div>
+						<button ng-click="showCommentForm = true" class="btn btn-primary">Add Comment</button>
+						<div id="addComment" ng-show="showCommentForm">
+							<h2>Add a Comment:</h2>
+							<form ng-submit="addComment(item, comment); showCommentForm = false;" class="form-inline" role="form">
+								<div class="form-group">
+									<input type="text" name="comment" id="comment" placeholder="Enter Comment">
+								</div>
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
