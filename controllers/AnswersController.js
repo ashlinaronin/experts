@@ -19,17 +19,25 @@ experts.controller('AnswersCtrl',
 		$scope.answerText = null;
 	}
 	
+	
 	$scope.rate = function(answer, value) {
-		var index = $scope.question.answers.indexOf(answer);
-		$scope.question.answers[index].rating += value;
+		// var index = $scope.question.answers.indexOf(answer);
+		answer.rating += value;
+		// $scope.question.answers[index].rating += value;
 	}
 	
-	$scope.addComment = function(answer, comment) {
-		console.log(comment);
-		var newComment = {description: comment};
-		var index = $scope.question.answers.indexOf(answer);
-		$scope.question.answers[index].comments.push(newComment);
+	$scope.addComment = function(answer, commentText) {
 		
-		
+		// var index = $scope.question.answers.indexOf(answer);
+		var newComment = {description: commentText};
+		answer.comments.push(newComment);
+		// $scope.question.answers[index].comments.push(newComment);
+		$scope.commentText = null;
+	}
+	
+	$scope.approveAnswer = function(answer, value) {
+		// var index = $scope.question.answers.indexOf(answer);
+		answer.approved = value;
+		// $scope.question.answers[index].approved = value;
 	}
 });
