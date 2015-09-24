@@ -18,8 +18,8 @@
 		</div>
 		<div class="panel-body">
 			<p ng-show="!questions.length">No questions yet.</p>
-			<div class="list-group" ng-show="questions.length">
-				<div class="list-group-item" ng-repeat="item in questions | filter:query">
+			<div class="list-group example-animate-container" ng-show="questions.length">
+				<div class="list-group-item animate-repeat" ng-repeat="item in questions | filter:query">
 					<h4 class="list-group-item-heading"><a ui-sref="questions.answers({ questionId: item.id })">{{ item.synopsis }}</a></h4>
 					<p class="list-group-item-text">Asked by: {{ item.userName }}</p>
 					<p class="list-group-item-text">Answered:

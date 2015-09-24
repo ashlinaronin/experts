@@ -1,4 +1,4 @@
-var experts = angular.module('experts', ['ui.router']);
+var experts = angular.module('experts', ['ui.router', 'ngAnimate']);
 
 experts.config(function($stateProvider, $urlRouterProvider) {
 	// $stateProvider.state('home', {

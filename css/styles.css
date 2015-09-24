@@ -1,9 +1,13 @@
 .container {
-  /*padding-top: 30px;*/
+  padding-top: 70px;
 }
 
 .navbar{
   background-color: #D1D1D1;
+}
+
+.navbar-brand {
+  font-weight: 500;
 }
 
 #questions-panel-head, #answers-panel-head {
@@ -17,6 +21,11 @@
 
 #question-list input, #question-list textarea, .show-btn, .list-group-item {
   background-color: #F4F4F4;
+}
+
+pre {
+  border-width: 0px;
+  font-family: monospace;
 }
 
 /*#question-list textarea {
