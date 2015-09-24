@@ -1,11 +1,6 @@
 var experts = angular.module('experts', ['ui.router', 'ngAnimate']);
 
 experts.config(function($stateProvider, $urlRouterProvider) {
-	// $stateProvider.state('home', {
-	// 	url: "",
-	// 	templateUrl: "partials/home.html"
-	// });
-	
 	$stateProvider.state('questions', {
 		url: "",
 		templateUrl: "partials/questions.html",

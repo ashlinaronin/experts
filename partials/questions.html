@@ -21,11 +21,13 @@
 			<div class="list-group example-animate-container" ng-show="questions.length">
 				<div class="list-group-item animate-repeat" ng-repeat="item in questions | filter:query">
 					<h4 class="list-group-item-heading"><a ui-sref="questions.answers({ questionId: item.id })">{{ item.synopsis }}</a></h4>
-					<p class="list-group-item-text">Asked by: {{ item.userName }}</p>
-					<p class="list-group-item-text">Answered:
+					<p class="list-group-item-text"><strong>Asked by</strong>: {{ item.userName }}</p>
+					<p class="list-group-item-text"><strong>Answered</strong>:
 						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" ng-show="item.answered"></span>
 						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ng-show="!item.answered"></span>
 					</p>
+					<p class="list-group-item-text" ng-show="item.answered"><strong>{{ item.answers.length }} answer<span ng-show="item.answers.length > 1">s</span>.
+					</strong></p>
 				</div>
 			</div>
 			<div id="new-question">
