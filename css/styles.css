@@ -1,3 +1,25 @@
 .container {
   /*padding-top: 30px;*/
 }
+
+.navbar{
+  background-color: #D1D1D1;
+}
+
+#questions-panel-head, #answers-panel-head {
+
+  background-color: #FF7070;
+}
+
+#question-list {
+    background-color: #FF9696;
+}
+
+#question-list input, #question-list textarea, .show-btn, .list-group-item {
+  background-color: #F4F4F4;
+}
+
+/*#question-list textarea {
+    background-color: #DBD2CB;
+}*/
+

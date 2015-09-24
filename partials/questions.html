@@ -1,12 +1,25 @@
 <div>
 	<div class="panel panel-default" id="question-list">
-		<div class="panel-heading">
-			<h2>Questions:</h2>
-			<p ng-show="!questions.length">No questions yet.</p>
+		<div class="panel-heading" id="questions-panel-head">
+			<div class="row">
+				<div class="col-md-8">
+					<h2>Questions:</h2>
+				</div>
+				<div class="col-md-3 form-inline">
+					<label for="buttons">Show:</label>
+					<div class="btn-group" id="buttons" role="group" aria-label="...">
+						<button type="button" class="btn btn-default show-btn" ng-click="query = ''">All</button>
+						<button type="button" class="btn btn-default show-btn" ng-click="query = {answered: false}">Unanswered</button>
+						<button type="button" class="btn btn-default show-btn" ng-click="query = {answered: true}">Answered</button>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 		<div class="panel-body">
+			<p ng-show="!questions.length">No questions yet.</p>
 			<div class="list-group" ng-show="questions.length">
-				<div class="list-group-item" ng-repeat="item in questions | orderBy: '-answered'"">
+				<div class="list-group-item" ng-repeat="item in questions | filter:query">
 					<h4 class="list-group-item-heading"><a ui-sref="questions.answers({ questionId: item.id })">{{ item.synopsis }}</a></h4>
 					<p class="list-group-item-text">Asked by: {{ item.userName }}</p>
 					<p class="list-group-item-text">Answered:
