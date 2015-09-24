@@ -26,10 +26,12 @@
 								<button type="submit" class="btn btn-default">Add</button>
 							</form>
 						</div>
-						<h3>Comments:</h3>
-						<div class="list-group">
-							<div class="list-group-item" ng-show="item.comments.length" ng-repeat="comment in item.comments">
-								<p class="list-group-item-text">{{ comment.description }}</p>
+						<div ng-show="item.comments.length">
+							<h3>Comments:</h3>
+							<div class="list-group">
+								<div class="list-group-item"  ng-repeat="comment in item.comments">
+									<p class="list-group-item-text">{{ comment.description }}</p>
+								</div>
 							</div>
 						</div>
 					</div>
